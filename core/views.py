@@ -9,9 +9,6 @@ import calendar
 
 locale.setlocale(locale.LC_ALL, "es_ES.UTF-8")
 
-def pifia(request):
-    pass
-
 def home(request):
 
     return render(request, "core/home.html")
