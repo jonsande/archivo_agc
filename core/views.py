@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from readerapp.models import Article
+from .models import HomeConfig
 import locale
 from datetime import date
 import calendar
@@ -9,9 +10,16 @@ import calendar
 
 locale.setlocale(locale.LC_ALL, "es_ES.UTF-8")
 
-def home(request):
+#def home(request):
+#
+#    return render(request, "core/home.html")
 
-    return render(request, "core/home.html")
+def home(request):
+    #configuracion = HomeConfig.objects.first() # Obtener la primera instancia del modelo
+    #configuracion = HomePageConfig.obtener_configuracion_sitio()
+    configuracion = HomeConfig.load()
+    context = {'configuracion': configuracion}
+    return render(request, 'core/home.html', context)
 
 
 def gindex(request):
