@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main role="main" class="container" style=''>
+
+        <div class="p-2 mt-4 mb-4">
+            <p class="h1 text-center titulo">{{head}}</p>
+        </div>
+        
+        <table class="table table-collapsed table-striped table-hover">
+            <thead class="table-dark" bgcolor="red">
+            <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Título</th>
+                <th scope="col">Código antiguo</th>
+                <th scope="col">Estado de revisión</th>
+            </tr>
+            </thead>
+            {% for tertulia in tertulias %}
+            <tbody>
+                <tr role="button" onclick="window.location='{% url 'dispatch_slug' tertulia.slug %}'">
+                    <td>{{tertulia.new_cod}}</td>
+                    <td>{{tertulia.title}}</td>
+                    <td>{{tertulia.old_cod}}</td>
+                    <td>{{tertulia.status}}</td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </main>
+
+{% endblock %}

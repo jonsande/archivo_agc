@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Main -->
+    <main role="main" class="container">
+
+        <!-- Cabecera -->
+        <div class="p-2 mt-4 mb-4">
+            <p class="h1 text-center titulo">Índice General</p>
+        </div>
+        <!-- Cabecera -->
+
+        <!-- Cuerpo -->
+        <div class="lead pb-5 cuerpo" style="font-size: medium">
+
+            <!--
+            <main role="main" class="container" style=''>
+                <table class="table table-collapsed table-striped">
+                    <thead class="table-dark">
+                    <tr>
+                        <th scope="col" width="10%">Año</th>
+                        <th scope="col">Mes</th>
+                    </tr>
+                    </thead>
+                    {% for key, value in tertu_dict.items %}
+                    <tbody>
+                    <tr>
+                        <td><a href="{% url 'list_by_year' year=key %}">{{key}}</a></td>
+                        <td>{% for i in value %}
+                            <a href="">{{i}}</a>&nbsp&nbsp
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </main>
+            -->
+
+
+            <!-- Primera fila -->
+
+            <div class="row align-items-start">
+                {% for key, value in verbose_month_dict.items %}
+                <div class="col-2">
+                    <ul style="list-style: none;">
+                        <h3><a href="{% url 'list_by_year' year=key %}">{{key}}</h3>
+                        {% for i in value %}
+                        <li><a href="{% url 'list_articles' year=key month=i %}">{{i}}</a></li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+                {% endfor %}
+
+
+            <!-- Segunda fila -->
+            
+    
+        </div>
+
+        <!-- Cuerpo -->
+
+    </main>
+    <!-- Main -->
+
+{% endblock %}

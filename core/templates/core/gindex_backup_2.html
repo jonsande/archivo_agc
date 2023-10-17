@@ -1,0 +1,153 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Main -->
+    <main role="main" class="container">
+
+        <!-- Cabecera -->
+        <div class="p-2 mt-4">
+            <p class="h1 text-center titulo">Índice General</p>
+        </div>
+        <!-- Cabecera -->
+
+        <!-- Cuerpo -->
+        <div class="lead pt-5 pb-5 cuerpo" style="font-size: medium">
+
+            <main role="main" class="container" style='padding-top: 75px;'>
+                <table class="table table-collapsed table-striped">
+                    <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Año</th>
+                        <th scope="col">Mes</th>
+                    </tr>
+                    </thead>
+                    {% for key, value in tertu_dic.items %}
+                    <tbody>
+                    <tr>
+                        <td><a href="{% url 'List_by_year' year=key %}">{{key}}</a></td>
+                        <td>{% for i in value %}
+                            <a href="{% url 'List' year=key month=i %}">{{i}}</a> |
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </main>
+
+
+            <!-- Primera fila -->
+            <div class="row align-items-start">
+                {% for key, value in tertu_dic.items %}
+                <div class="col-2">
+                    <ul style="list-style: none;">
+                        <h3><a href="">{{key}}</h3>
+                        {% for i in value %}
+                        <li><a href="{% url 'List' year=key month=i %}">{{i}}</a></li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+                {% endfor %}
+            <!-- Segunda fila -->
+            
+            <div class="row align-items-start">
+                <div class="col">
+                    <ul style="list-style: none;">
+                        <h3>2003</h3>
+                        <li><a href="">Enero</a></li>
+                        <li><a href="">Febrero</a></li>
+                        <li><a href="">Marzo</a></li>
+                        <li><a href="">Abril</a></li>
+                        <li><a href="">Mayo</a></li>
+                        <li><a href="">Junio</a></li>
+                        <li><a href="">Julio</a></li>
+                        <li><a href="">Agosto</a></li>
+                        <li><a href="">Septiembre</a></li>
+                        <li><a href="">Octubre</a></li>
+                        <li><a href="">Noviembre</a></li>
+                        <li><a href="">Diciembre</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul style="list-style: none;">
+                        <h3>2004</h3>
+                        <li><a href="">Enero</a></li>
+                        <li><a href="">Febrero</a></li>
+                        <li><a href="">Marzo</a></li>
+                        <li><a href="">Abril</a></li>
+                        <li><a href="">Mayo</a></li>
+                        <li><a href="">Junio</a></li>
+                        <li><a href="">Julio</a></li>
+                        <li><a href="">Agosto</a></li>
+                        <li><a href="">Septiembre</a></li>
+                        <li><a href="">Octubre</a></li>
+                        <li><a href="">Noviembre</a></li>
+                        <li><a href="">Diciembre</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul style="list-style: none;">
+                        <h3>2005</h3>
+                        <li><a href="">Enero</a></li>
+                        <li><a href="">Febrero</a></li>
+                        <li><a href="">Marzo</a></li>
+                        <li><a href="">Abril</a></li>
+                        <li><a href="">Mayo</a></li>
+                        <li><a href="">Junio</a></li>
+                        <li><a href="">Julio</a></li>
+                        <li><a href="">Agosto</a></li>
+                        <li><a href="">Septiembre</a></li>
+                        <li><a href="">Octubre</a></li>
+                        <li><a href="">Noviembre</a></li>
+                        <li><a href="">Diciembre</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul style="list-style: none;">
+                        <h3>2006</h3>
+                        <li><a href="">Enero</a></li>
+                        <li><a href="">Febrero</a></li>
+                        <li><a href="">Marzo</a></li>
+                        <li><a href="">Abril</a></li>
+                        <li><a href="">Mayo</a></li>
+                        <li><a href="">Junio</a></li>
+                        <li><a href="">Julio</a></li>
+                        <li><a href="">Agosto</a></li>
+                        <li><a href="">Septiembre</a></li>
+                        <li><a href="">Octubre</a></li>
+                        <li><a href="">Noviembre</a></li>
+                        <li><a href="">Diciembre</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul style="list-style: none;">
+                        <h3>2007</h3>
+                        <li><a href="">Enero</a></li>
+                        <li><a href="">Febrero</a></li>
+                        <li><a href="">Marzo</a></li>
+                        <li><a href="">Abril</a></li>
+                        <li><a href="">Mayo</a></li>
+                        <li><a href="">Junio</a></li>
+                        <li><a href="">Julio</a></li>
+                        <li><a href="">Agosto</a></li>
+                        <li><a href="">Septiembre</a></li>
+                        <li><a href="">Octubre</a></li>
+                        <li><a href="">Noviembre</a></li>
+                        <li><a href="">Diciembre</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+    
+        </div>
+
+        <!-- Cuerpo -->
+
+    </main>
+    <!-- Main -->
+
+{% endblock %}

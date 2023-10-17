@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Main -->
+    <main role="main" class="container">
+        <div class="">
+            <!-- Cabecera -->
+            <div class="p-2 mt-4">
+                
+                <p class="h1 text-center titulo">{{tertulia.title}}</p>
+            </div>
+            <!-- Cabecera -->
+
+            <!-- Subcabecera -->
+            <div class="">
+                <p class="lead text-center subtitulo">Ateneo de Madrid, {{tertulia.new_cod}}</p><br>
+                <!--<p class="text-center">[ Archivo de audio | Solicitar revisión | <a href="">Exportar a pdf</a> ] </p>-->
+            </div>
+            <!-- Subcabecera -->
+
+            <!-- Resumen -->
+            {% if tertulia.abstract|length > 0 %}
+            <div class="mt-5 mb-5">
+                <p class="lead text-center resumen">Resumen</p>
+                <div class="lead resumen_contenido">
+                    {{tertulia.abstract|safe}}
+                </div>
+            {% else %}
+            {% endif %}
+
+                <!-- Etiqetas
+                <div class="">
+                    <ul id="etiquetas">
+                        Temas:
+                        <li>tema1</li>
+                        <li>tema2</li>
+                        <li>tema3</li>
+                        <li>tema4</li>
+                    </ul>
+                </div>
+                -->
+            </div>
+            
+
+            <!-- Cuerpo -->
+            <div class="lead pt-5 pb-5 cuerpo">
+                {{tertulia.cuerpo|safe}}
+            </div>
+
+            <div class="lead pt-5 pb-5 cuerpo">
+                <p></p>
+            </div>
+            
+            <!-- Cuerpo -->
+
+        </div>
+    </main>
+    <!-- Main -->
+    
+{% endblock %}

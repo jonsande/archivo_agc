@@ -1,0 +1,77 @@
+p.readerh1 {
+  padding-top: 75px;
+  font-family: Georgia, serif;
+}
+
+p.readerh2 {
+  font-family: Georgia, serif;
+}
+
+p.abstract {
+  font-family: Georgia, serif;
+  font-weight: bold;
+}
+
+p.abstract2 {
+  font-family: Georgia, serif;
+  /* Si queremos estrechar la columna central...: */
+  /*width:80%;
+  margin:auto;*/
+}
+
+ul#etiquetas li {
+  display:inline;
+}
+
+.reader {
+  font-family: Georgia, serif;
+  /* Si queremos estrechar la columna central...: */
+  /*width:80%;
+  margin:auto;*/
+}
+
+hr {
+  /* Si queremos estrechar los separadores...: */
+  /*width: 80%;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;*/
+
+}
+
+/* Changing the default input focus blue glow */
+/* https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow */
+.form-control:focus {
+  border-color: #541717;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 52, 52, 0.6);
+}
+
+/* Button colors */
+.btn {
+  /* color: white;
+  background-color: rgb(102, 102, 102); */
+}
+
+/* Footer behavior */
+footer {
+  position: fixed;
+  /* height: 100px; */
+  bottom: 0;
+  width: 100%;
+}
+
+/* Index and links style */
+section.mindex {
+  width:80%;
+  margin:auto;
+  column-count:4;
+ }
+a {
+  text-decoration:none;
+  color:black;
+}
+
+.col {
+  width:80%;
+  margin:auto;
+}
