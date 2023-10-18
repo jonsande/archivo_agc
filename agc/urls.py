@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_header = 'ATAGC'
+admin.site.site_header = 'Administración de ATAGC'       # default: "Django Administration"
+admin.site.index_title = 'Secciones'                 # default: "Site administration"
+admin.site.site_title = 'Administación de ATAGC ' # default: "Django site admin"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),

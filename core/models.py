@@ -8,11 +8,12 @@ class HomeConfig(models.Model):
     texto_portada = models.TextField(max_length=1000, null=False, blank=False, verbose_name='Texto de bienvenida', default="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at tempor lectus. Etiam pharetra, sem a sagittis blandit, tortor odio euismod risus, eu tristique est nisi id sem. Pellentesque sodales est a diam aliquet commodo. Duis lobortis ante nec eros luctus, a lacinia dolor feugiat. Fusce sollicitudin, felis tempus placerat imperdiet, turpis lacus placerat justo, eu ullamcorper lacus metus ut felis. Aenean fringilla et tortor at rutrum. Etiam at est eget nunc accumsan sagittis in vel orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis hendrerit tortor.")
 
     class Meta:
-        verbose_name = 'Configuración de la página'
-        verbose_name_plural = 'Configuración de la página'
+        verbose_name = 'Configuración de la página web'
+        verbose_name_plural = 'Configuración de la página web'
     
     def __str__(self):
-        return self.titulo
+        #return self.titulo
+        return "Página de inicio"
     
     
     """
