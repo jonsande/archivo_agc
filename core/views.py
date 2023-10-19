@@ -80,14 +80,64 @@ def admin(request):
 # + Que los resultados se puedan ordenar por fecha ascendente/descendente
 
 def search(request):
+    from django.db.models import Count
+
     #import ipdb;ipdb.set_trace()
+
     query = request.GET.get('consulta')
-    #if not query:
-    #    query = ""
+
     if query == None:
         tertulias = Article.objects.filter(cuerpo__icontains=' ')
+        context = {'tertulias': tertulias, 'query': query}
+        return render(request, 'core/search.html', context)
+    
     else:
         tertulias = Article.objects.filter(cuerpo__icontains=query)
-    context = {'tertulias': tertulias}
-    return render(request, 'core/search.html', context)
+
+        tertu_dict = {}
+
+        for i in tertulias:
+            body = i.cuerpo.lower()
+            counter = body.count(query.lower())
+            tertu_dict.update({i: counter})
+
+        context = {'tertulias': tertulias, 'tertu_dict': tertu_dict, 'query': query}
+        return render(request, 'core/search.html', context)
+
+
+
+
+
+
+
+
+
+
+
+        
+        #coincidencias = {}
+        #for i in tertulias:
+        #    counter = tertulias.count()
+        #    coincidencias.update({i.title: counter})
+
+        #coincidencias = tertulias.count()
+        #coincidencias = tertulias.annotate(total=Count('cuerpo')).order_by('total')
+        #coincidencias = tertulias.values('cuerpo').annotate(total=Count('cuerpo'))
+        #coincidencias = tertulias.values('cuerpo').annotate(total=Count('cuerpo')).order_by('total')
+        
+        #tertulias = Article.objects.filter(cuerpo__icontains=query).values('cuerpo').annotate(total=Count('cuerpo')).order_by('total')
+    
+
+        # Ahora realizamos la anotación y el ordenamiento
+        #tertulias = tertulias.annotate(search_count=Count('cuerpo')).order_by('-search_count')
+
+        # Anotación con Count
+        #tertulias = tertulias.annotate(search_count=Count('cuerpo'))
+
+        # Ordenar por recuento si es necesario
+        #tertulias = tertulias.order_by('-search_count')
+
+
+        #context = {'tertulias': tertulias, 'query': query, 'coincidencias': coincidencias}
+        #return render(request, 'core/search.html', context)
 

@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from readerapp.models import Article, Slug
 from datetime import date
 import calendar
-# Para la generación de pdf:
 
+# Para la generación de pdf:
 
 
 # Create your views here.
@@ -32,11 +32,9 @@ def list_by_year(request, year):
 
 
 def dispatch_slug(request, slug):
+    #import ipdb;ipdb.set_trace()
     slug = get_object_or_404(Slug, slug=slug)
     qs = Article.objects.filter(slug=slug)
     if qs.exists():
         tertulia = qs[0]
     return render(request, "readerapp/tertulia-single.html", locals())
-
-
-

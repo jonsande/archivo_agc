@@ -7,32 +7,39 @@
     <main role="main" class="container" style=''>
 
         <div class="p-2 mt-4 mb-4">
-            <p class="h1 text-center titulo">Coincidencias</p>
+            <p class="h1 text-center titulo">Coincidencias para '{{ query }}'</p>
         </div>
-        
+        {% if tertulias %}
         <table class="table table-collapsed table-striped table-hover">
             <thead class="table-dark" bgcolor="red">
             <tr>
-                <th scope="col">Fecha</th>
+                <th scope="col">Tertulia</th>
                 <!--<th scope="col">Título</th>-->
                 <th scope="col">Referencia antigua</th>
                 <th scope="col">Estado de revisión</th>
+                <th scope="col">Coincidencias</th>
             </tr>
             </thead>
-            {% if tertulias %}
-            {% for tertulia in tertulias %}
+            
+            {% for i in tertulias %}
             <tbody>
-                <tr role="button" onclick="window.location='{% url 'dispatch_slug' tertulia.slug %}'">
-                    <td>{{tertulia.new_cod}}</td>
+                <tr role="button" onclick="window.location='{% url 'dispatch_slug' i.slug %}'">
+                    <td>{{i.new_cod}}</td>
                     <!--<td>{{tertulia.title}}</td>-->
-                    <td>{{tertulia.old_cod}}</td>
-                    <td>{{tertulia.status}}</td>
+                    <td>{{i.old_cod}}</td>
+                    <td>{{i.status}}</td>
+                    <!-- <td>{{ tertu_dict.i }}</td> DEBERÍA PERO NO FUNCIONA-->
+                    {% if query == None%}
+                    <td>-</td>
+                    {% else %}
+                    <td>{{ tertu_dict|get_item:i }}</td> <!-- Ejecutamos la función get_item() registrada en custom_tags.py-->
+                    {% endif %}
             </tr>
             </tbody>
             {% endfor %}
             {% else %}
             <p>No se encontraron resultados.</p>
-            {% endif %}
+        {% endif %}
         </table>
     </main>
 

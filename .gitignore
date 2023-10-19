@@ -1,7 +1,7 @@
 *.pyc
 *.py[co]
 *.egg-info
-settings.py
+#settings.py
 *.txt
 
 # Byte-compiled / optimized / DLL files
