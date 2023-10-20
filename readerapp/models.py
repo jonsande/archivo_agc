@@ -1,4 +1,8 @@
 from django.db import models
+# El error /Import "ckeditor.fields" could not be resolved/ se debe
+# a que visual estudio no está corriendo con el venv.
+# Ckeditor está instalado en el venv. No hay pués que preocuparse por
+# este error.
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.template.defaultfilters import slugify

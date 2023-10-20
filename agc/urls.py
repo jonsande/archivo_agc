@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# https://ordinarycoders.com/blog/article/add-a-custom-favicon-to-your-django-web-app
+#from django.contrib.staticfiles.storage import staticfiles_storage
+#from django.views.generic.base import RedirectView
 
 admin.site.site_header = 'ATAGC'
 admin.site.site_header = 'Administración de ATAGC'       # default: "Django Administration"
@@ -26,4 +29,5 @@ urlpatterns = [
     path('', include('core.urls')),
     path('tertulias/', include('readerapp.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    #path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico'))),
 ]

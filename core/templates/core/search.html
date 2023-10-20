@@ -10,23 +10,27 @@
             <p class="h1 text-center titulo">Coincidencias para '{{ query }}'</p>
         </div>
         {% if tertulias %}
-        <table class="table table-collapsed table-striped table-hover">
+        <table id="tablaIndexable" class="table table-collapsed table-striped table-hover">
             <thead class="table-dark" bgcolor="red">
             <tr>
-                <th scope="col">Tertulia</th>
                 <!--<th scope="col">Título</th>-->
-                <th scope="col">Referencia antigua</th>
-                <th scope="col">Estado de revisión</th>
-                <th scope="col">Coincidencias</th>
+                <th scope="col" role="button" onclick="sortTableDate(0)">Tertulia</th>
+                <th scope="col" role="button" onclick="sortTable(1)">Referencia antigua</th>
+                <th scope="col" role="button" onclick="sortTableText(2)">Estado de revisión</th>
+                <th scope="col" role="button" onclick="sortTable(3)">Coincidencias</th>                      
             </tr>
             </thead>
-            
+
             {% for i in tertulias %}
             <tbody>
                 <tr role="button" onclick="window.location='{% url 'dispatch_slug' i.slug %}'">
                     <td>{{i.new_cod}}</td>
                     <!--<td>{{tertulia.title}}</td>-->
+                    {% if i.old_cod == None %}
+                    <td>0</td>
+                    {% else %}
                     <td>{{i.old_cod}}</td>
+                    {% endif %}
                     <td>{{i.status}}</td>
                     <!-- <td>{{ tertu_dict.i }}</td> DEBERÍA PERO NO FUNCIONA-->
                     {% if query == None or query == '' %}
@@ -42,5 +46,8 @@
         {% endif %}
         </table>
     </main>
+
+<script src="{% static 'core/js/sortTable.js' %}"></script>
+
 
 {% endblock %}
