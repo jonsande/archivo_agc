@@ -7,7 +7,11 @@
     <main role="main" class="container" style=''>
 
         <div class="p-2 mt-4 mb-4">
+            {% if query == None %}
+            <p class="h1 text-center titulo">Tertulias registradas</p>
+            {% else %}
             <p class="h1 text-center titulo">Coincidencias para '{{ query }}'</p>
+            {% endif %}
         </div>
         {% if tertulias %}
         <table id="tablaIndexable" class="table table-collapsed table-striped table-hover">

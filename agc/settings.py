@@ -126,23 +126,23 @@ USE_TZ = True
 # https://ordinarycoders.com/blog/article/add-a-custom-favicon-to-your-django-web-app
 
 ### OPCIÓN A ###
-# Con esta configuración busca en core/static/core/ pero no en agc/static/
+# Con esta configuración busca en agc/core/static/ pero no en agc/static/
 # La razón parece ser:
 # toma como directorio raíz el parent.parent del lugar donde está el template o archivo
 # desde el que se llama a static
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIR = os.path.join(BASE_DIR, 'static')
+#STATIC_URL = 'static/'
+#STATIC_ROOT = BASE_DIR / 'static'
+#STATICFILES_DIR = os.path.join(BASE_DIR, 'static')
 ################
 
 ### OPCIÓN B ###
-# Con esta configuración busca en agc/static/ pero no en core/static/core
+# Con esta configuración busca en agc/static/ pero no en agc/core/static/
 
-#STATIC_URL = 'static/'
-#STATICFILES_DIRS = [
-#     os.path.join (BASE_DIR, 'static'),
-#]
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+     os.path.join (BASE_DIR, 'static'),
+]
 ################
 
 #if not DEBUG:

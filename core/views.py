@@ -75,9 +75,6 @@ def admin(request):
 
     return render(request, "admin")
 
-# TODO
-# + Que los resultados aparezcan ordenados por defecto según fecha
-# + Que los resultados se puedan ordenar por fecha ascendente/descendente
 
 def search(request):
     from django.db.models import Count
@@ -103,41 +100,4 @@ def search(request):
 
         context = {'tertulias': tertulias, 'tertu_dict': tertu_dict, 'query': query}
         return render(request, 'core/search.html', context)
-
-
-
-
-
-
-
-
-
-
-
-        
-        #coincidencias = {}
-        #for i in tertulias:
-        #    counter = tertulias.count()
-        #    coincidencias.update({i.title: counter})
-
-        #coincidencias = tertulias.count()
-        #coincidencias = tertulias.annotate(total=Count('cuerpo')).order_by('total')
-        #coincidencias = tertulias.values('cuerpo').annotate(total=Count('cuerpo'))
-        #coincidencias = tertulias.values('cuerpo').annotate(total=Count('cuerpo')).order_by('total')
-        
-        #tertulias = Article.objects.filter(cuerpo__icontains=query).values('cuerpo').annotate(total=Count('cuerpo')).order_by('total')
     
-
-        # Ahora realizamos la anotación y el ordenamiento
-        #tertulias = tertulias.annotate(search_count=Count('cuerpo')).order_by('-search_count')
-
-        # Anotación con Count
-        #tertulias = tertulias.annotate(search_count=Count('cuerpo'))
-
-        # Ordenar por recuento si es necesario
-        #tertulias = tertulias.order_by('-search_count')
-
-
-        #context = {'tertulias': tertulias, 'query': query, 'coincidencias': coincidencias}
-        #return render(request, 'core/search.html', context)
-
