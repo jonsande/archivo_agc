@@ -21,7 +21,9 @@
                 <th scope="col" role="button" onclick="sortTableDate(0)">Tertulia</th>
                 <th scope="col" role="button" onclick="sortTable(1)">Referencia antigua</th>
                 <th scope="col" role="button" onclick="sortTableText(2)">Estado de revisión</th>
-                <th scope="col" role="button" onclick="sortTable(3)">Coincidencias</th>                      
+                {% if query != None %}
+                <th scope="col" role="button" onclick="sortTable(3)">Coincidencias</th>
+                {% endif %}                 
             </tr>
             </thead>
 
@@ -37,10 +39,11 @@
                     {% endif %}
                     <td>{{i.status}}</td>
                     <!-- <td>{{ tertu_dict.i }}</td> DEBERÍA PERO NO FUNCIONA-->
-                    {% if query == None or query == '' %}
-                    <td>-</td>
-                    {% else %}
+                    {% if query != None and query != '' %}
                     <td>{{ tertu_dict|get_item:i }}</td> <!-- Ejecutamos la función get_item() registrada en custom_tags.py-->
+                    {% endif %}
+                    {% if query == ''%}
+                    <td>-</td>
                     {% endif %}
             </tr>
             </tbody>
